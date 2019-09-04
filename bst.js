@@ -35,6 +35,10 @@ class BTS{
             }
         }
     }
+    getHeight(node = this.root){
+        if(!node) return 0;
+        return 1 + Math.max(this.getHeight(node.left), this.getHeight(node.right)); 
+    }
 }
 
 const b = new BTS();
@@ -45,3 +49,4 @@ b.add(8);
 b.add(5);
 
 console.log(b.root);
+console.log(b.getHeight());

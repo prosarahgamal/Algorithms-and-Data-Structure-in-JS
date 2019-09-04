@@ -39,6 +39,11 @@ class BTS{
         if(!node) return 0;
         return 1 + Math.max(this.getHeight(node.left), this.getHeight(node.right)); 
     }
+    isBalanced(node = this.root){
+        if(!node) return false;
+        if(Math.abs(this.getHeight(node.left) - this.getHeight(node.right)) > 1) return false;
+        return this.isBalanced(node.left) && this.isBalanced(node.right);
+    }
 }
 
 const b = new BTS();
@@ -50,3 +55,4 @@ b.add(5);
 
 console.log(b.root);
 console.log(b.getHeight());
+console.log(b.isBalanced());
